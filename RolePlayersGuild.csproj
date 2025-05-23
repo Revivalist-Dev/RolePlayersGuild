@@ -1,0 +1,1248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RolePlayersGuild</RootNamespace>
+    <AssemblyName>RolePlayersGuild</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AWSSDK.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.Core.3.1.9.0\lib\net45\AWSSDK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.1.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.S3.3.1.8.1\lib\net45\AWSSDK.S3.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.6.0.1304.0\lib\portable-net45+win+wp8\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\EnterpriseLibrary.TransientFaultHandling.Data.6.0.1304.1\lib\NET45\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account-Recovery\initiate.aspx" />
+    <Content Include="Account-Recovery\Default.aspx" />
+    <Content Include="Admin\Articles\Default.aspx" />
+    <Content Include="Admin\Characters-Under-Review\Default.aspx" />
+    <Content Include="Admin\Characters\Default.aspx" />
+    <Content Include="Admin\Chat-Rooms\Default.aspx" />
+    <Content Include="Admin\Site-Privacy-Policy\Default.aspx" />
+    <Content Include="Admin\Site-Funding-Goal\Default.aspx" />
+    <Content Include="Admin\Stories\Default.aspx" />
+    <Content Include="Admin\Universes\Default.aspx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Site-Rules\Default.aspx" />
+    <Content Include="Admin\Purge\AutomatedPurge.aspx" />
+    <Content Include="Admin\Stream-Settings\Default.aspx" />
+    <Content Include="Admin\Stream-Archive\Default.aspx" />
+    <Content Include="Admin\Mass-Message\Default.aspx" />
+    <Content Include="Admin\ToDo\Add-Item\Default.aspx" />
+    <Content Include="Admin\ToDo\Default.aspx" />
+    <Content Include="Admin\Users\Default.aspx" />
+    <Content Include="Badge\List\Default.aspx" />
+    <Content Include="Character-Art-Commissions\Default.aspx" />
+    <Content Include="Character\Default.aspx" />
+    <Content Include="Character\Search\Default.aspx" />
+    <Content Include="Chat-Rooms\AddChatContent.aspx" />
+    <Content Include="Chat-Rooms\Default.aspx" />
+    <Content Include="Chat-Rooms\GetChatContent.aspx" />
+    <Content Include="Chat-Rooms\Room\Default.aspx" />
+    <Content Include="Coming-Changes\Default.aspx" />
+    <Content Include="css\darktheme.css">
+      <DependentUpon>darktheme.less</DependentUpon>
+    </Content>
+    <Content Include="css\darktheme.min.css">
+      <DependentUpon>darktheme.css</DependentUpon>
+    </Content>
+    <Content Include="css\summernote.css" />
+    <Content Include="Donations\Default.aspx" />
+    <Content Include="Error\BadRequest\Default.aspx" />
+    <Content Include="Error\TripError.aspx" />
+    <Content Include="FAQ\Default.aspx" />
+    <Content Include="Functionality-Voting\Default.aspx" />
+    <Content Include="Gallery\Default.aspx" />
+    <Content Include="Gallery\Image\Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\Badges\ArticleCreator.png" />
+    <Content Include="Images\Badges\BadgeCreator.png" />
+    <Content Include="Images\Badges\BronzeMember.png" />
+    <Content Include="Images\Badges\CervicalCancerBadge.png" />
+    <Content Include="Images\Badges\CharacterCreated.png" />
+    <Content Include="Images\Badges\ChatRoomCreator.png" />
+    <Content Include="Images\Badges\Donor.png" />
+    <Content Include="Images\Badges\DoomsDay.png" />
+    <Content Include="Images\Badges\EitorianBadge.png" />
+    <Content Include="Images\Badges\EkiriBadge.png" />
+    <Content Include="Images\Badges\FamilyDay.png" />
+    <Content Include="Images\Badges\FestivalOfTerani.png" />
+    <Content Include="Images\Badges\Finalist.png" />
+    <Content Include="Images\Badges\FirstPlace.png" />
+    <Content Include="Images\Badges\FiveYearBadge.png" />
+    <Content Include="Images\Badges\FriendReferral.png" />
+    <Content Include="Images\Badges\GoldMember.png" />
+    <Content Include="Images\Badges\HadienBadge.png" />
+    <Content Include="Images\Badges\HavBadge.png" />
+    <Content Include="Images\Badges\HighDonor.png" />
+    <Content Include="Images\Badges\MasterCreatorBadge.png" />
+    <Content Include="Images\Badges\RPGGamerPro.png" />
+    <Content Include="Images\Badges\SocialMediaGuruBadge.png" />
+    <Content Include="Images\Badges\StoryCreator.png" />
+    <Content Include="Images\Badges\TenYearBadge.png" />
+    <Content Include="Images\Badges\ThreeYearBadge.png" />
+    <Content Include="Images\Badges\TwoYearBadge.png" />
+    <Content Include="Images\Badges\UnknownBadge.png" />
+    <Content Include="Images\Badges\YearAnniversary.png" />
+    <Content Include="Images\Badges\MassFriendReferral.png" />
+    <Content Include="Images\Badges\PlatinumMember.png" />
+    <Content Include="Images\Badges\RPGGamer.png" />
+    <Content Include="Images\Badges\Setting.png" />
+    <Content Include="Images\Badges\SilverMember.png" />
+    <Content Include="Images\Badges\SocialMediaEvent.png" />
+    <Content Include="Images\Badges\StaffMember.png" />
+    <Content Include="Images\Badges\TragedyBadge.png" />
+    <Content Include="Images\Badges\UniverseCreator.png" />
+    <Content Include="Images\Badges\UnlimitedImages.png" />
+    <Content Include="Images\Banners\Banner-1.png" />
+    <Content Include="Images\Banners\Banner-2.gif" />
+    <Content Include="Images\Banners\Banner-3.jpg" />
+    <Content Include="Images\Banners\Banner-4.png" />
+    <Content Include="Images\Icons\OnlineIcon.gif" />
+    <Content Include="Images\Icons\spin.gif" />
+    <Content Include="Images\Logo\RPGico.png" />
+    <Content Include="Images\OOCbg.png" />
+    <Content Include="js\ays-beforeunload-shim.js" />
+    <Content Include="js\jquery.are-you-sure.js" />
+    <Content Include="js\jquery.bootstrap-autohidingnavbar.min.js" />
+    <Content Include="js\lazysizes.min.js" />
+    <Content Include="js\linkify-jquery.min.js" />
+    <Content Include="js\linkify.min.js" />
+    <Content Include="js\ls.unveilhooks.min.js" />
+    <Content Include="js\summernote.min.js" />
+    <Content Include="less\bootstrap.css">
+      <DependentUpon>bootstrap.less</DependentUpon>
+    </Content>
+    <Content Include="less\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="less\theme.css">
+      <DependentUpon>theme.less</DependentUpon>
+    </Content>
+    <Content Include="less\theme.min.css">
+      <DependentUpon>theme.css</DependentUpon>
+    </Content>
+    <Content Include="Logout\Default.aspx" />
+    <Content Include="Memberships\Cancel\Default.aspx" />
+    <Content Include="Memberships\Default.aspx" />
+    <Content Include="Memberships\Finish\Default.aspx" />
+    <Content Include="My-Stories\Default.aspx" />
+    <Content Include="My-Stories\Edit-Post\Default.aspx" />
+    <Content Include="My-Stories\Edit-Story\Default.aspx" />
+    <Content Include="My-Characters\Edit-Character\Custom-Profile\Default.aspx" />
+    <Content Include="My-Articles\Default.aspx" />
+    <Content Include="My-Articles\Edit-Article\Default.aspx" />
+    <Content Include="My-Dashboard\Default.aspx" />
+    <Content Include="My-Galleries\Default.aspx" />
+    <Content Include="My-Galleries\Edit-Gallery\Default.aspx" />
+    <Content Include="My-Quick-Links\Default.aspx" />
+    <Content Include="My-Settings\Change-Password\Default.aspx" />
+    <Content Include="My-Settings\Default.aspx" />
+    <Content Include="My-Threads\Abandoned-Threads\Default.aspx" />
+    <Content Include="My-Threads\Answered-Threads\Default.aspx" />
+    <Content Include="My-Chat-Rooms\Default.aspx" />
+    <Content Include="My-Chat-Rooms\Edit-Chat-Room\Default.aspx" />
+    <Content Include="My-Universes\Default.aspx" />
+    <Content Include="My-Universes\Edit-Universe\Default.aspx" />
+    <Content Include="My-Writing\Default.aspx" />
+    <Content Include="My-Writing\Edit-Profile\Default.aspx" />
+    <Content Include="PayPal-IPN\Default.aspx" />
+    <Content Include="Public-Areas\Default.aspx" />
+    <Content Include="Report\Default.aspx" />
+    <Content Include="robots.txt" />
+    <Content Include="Rules\Default.aspx" />
+    <Content Include="Sitemap\Default.aspx" />
+    <Content Include="Sitemap\Main.xml" />
+    <Content Include="Story\Default.aspx" />
+    <Content Include="Story\List\Default.aspx" />
+    <Content Include="Story\Posts\Default.aspx" />
+    <Content Include="templates\controls\CharacterListing.ascx" />
+    <Content Include="My-Threads\Default.aspx" />
+    <Content Include="My-Threads\Unanswered-Threads\Default.aspx" />
+    <Content Include="My-Threads\Edit-Thread\Default.aspx" />
+    <Content Include="My-Threads\Unread-Threads\Default.aspx" />
+    <Content Include="My-Threads\View-Thread\Default.aspx" />
+    <Content Include="My-Characters\Default.aspx" />
+    <Content Include="My-Characters\Edit-Character\Default.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Register\Default.aspx" />
+    <Content Include="templates\controls\ChatRoom.ascx" />
+    <Content Include="templates\controls\EditStory.ascx" />
+    <Content Include="templates\controls\EditArticle.ascx" />
+    <Content Include="templates\controls\EditChatRoom.ascx" />
+    <Content Include="templates\controls\EditUniverse.ascx" />
+    <Content Include="templates\controls\EditImage.ascx" />
+    <Content Include="templates\controls\EditCharacter.ascx" />
+    <Content Include="templates\controls\EditThread.ascx" />
+    <Content Include="templates\controls\endpoints\GetNotificationCounts.aspx" />
+    <Content Include="templates\controls\SendAsChanger.ascx" />
+    <Content Include="templates\controls\subcontrols\ImageUploadAccordionItem.ascx" />
+    <Content Include="templates\controls\ThreadListing.ascx" />
+    <Content Include="templates\controls\UpdateStream.ascx" />
+    <Content Include="templates\controls\UserNav.ascx" />
+    <Content Include="templates\controls\ViewThread.ascx" />
+    <Content Include="templates\controls\VotePrompt.ascx" />
+    <Content Include="templates\email\CanceledMembershipSubscription.html" />
+    <Content Include="templates\email\PasswordRecovery.html" />
+    <Content Include="templates\email\PaymentFailedMessage.html" />
+    <Content Include="templates\email\NewMembershipSubscription.html" />
+    <Content Include="templates\email\PaymentReceivedMessage.html" />
+    <Content Include="templates\email\NewItemMessage.html" />
+    <Content Include="templates\html\ProfilesHead.html" />
+    <Content Include="templates\Main.Master" />
+    <Content Include="templates\2-Col.master" />
+    <Content Include="templates\xml\SiteMap-URL.xml" />
+    <Content Include="templates\xml\SiteMap.xml" />
+    <Content Include="Terms-of-Use\Default.aspx" />
+    <Content Include="Testimonials\Default.aspx" />
+    <Content Include="Article\Default.aspx" />
+    <Content Include="Article\List\Default.aspx" />
+    <Content Include="Universe\Default.aspx" />
+    <Content Include="Universe\List\Default.aspx" />
+    <Content Include="Unsubscribe\Default.aspx" />
+    <Content Include="UserFiles\CharacterImages\AdultsOnly.jpg" />
+    <Content Include="VoteForRPG\Default.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="css\darktheme.less" />
+    <Content Include="Welcome-To-RPG\Default.aspx" />
+    <Content Include="Writer\Default.aspx" />
+    <None Include="css\main.less" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="templates\1-Col.master" />
+    <Content Include="Images\Logo\RPGIcon.ico" />
+    <None Include="less\.csscomb.json" />
+    <None Include="less\.csslintrc" />
+    <None Include="less\alerts.less" />
+    <None Include="less\badges.less" />
+    <None Include="less\bootstrap.less" />
+    <None Include="less\breadcrumbs.less" />
+    <None Include="less\button-groups.less" />
+    <None Include="less\buttons.less" />
+    <None Include="less\carousel.less" />
+    <None Include="less\close.less" />
+    <None Include="less\code.less" />
+    <None Include="less\component-animations.less" />
+    <None Include="less\dropdowns.less" />
+    <None Include="less\forms.less" />
+    <None Include="less\glyphicons.less" />
+    <None Include="less\grid.less" />
+    <None Include="less\input-groups.less" />
+    <None Include="less\jumbotron.less" />
+    <None Include="less\labels.less" />
+    <None Include="less\list-group.less" />
+    <None Include="less\media.less" />
+    <None Include="less\mixins.less" />
+    <None Include="less\modals.less" />
+    <None Include="less\navbar.less" />
+    <None Include="less\navs.less" />
+    <None Include="less\normalize.less" />
+    <None Include="less\pager.less" />
+    <None Include="less\pagination.less" />
+    <None Include="less\panels.less" />
+    <None Include="less\popovers.less" />
+    <None Include="less\print.less" />
+    <None Include="less\progress-bars.less" />
+    <None Include="less\responsive-embed.less" />
+    <None Include="less\responsive-utilities.less" />
+    <None Include="less\scaffolding.less" />
+    <None Include="less\tables.less" />
+    <None Include="less\theme.less" />
+    <None Include="less\thumbnails.less" />
+    <None Include="less\tooltip.less" />
+    <None Include="less\type.less" />
+    <None Include="less\utilities.less" />
+    <None Include="less\variables.less" />
+    <None Include="less\wells.less" />
+    <None Include="less\mixins\alerts.less" />
+    <None Include="less\mixins\background-variant.less" />
+    <None Include="less\mixins\border-radius.less" />
+    <None Include="less\mixins\buttons.less" />
+    <None Include="less\mixins\center-block.less" />
+    <None Include="less\mixins\clearfix.less" />
+    <None Include="less\mixins\forms.less" />
+    <None Include="less\mixins\gradients.less" />
+    <None Include="less\mixins\grid-framework.less" />
+    <None Include="less\mixins\grid.less" />
+    <None Include="less\mixins\hide-text.less" />
+    <None Include="less\mixins\image.less" />
+    <None Include="less\mixins\labels.less" />
+    <None Include="less\mixins\list-group.less" />
+    <None Include="less\mixins\nav-divider.less" />
+    <None Include="less\mixins\nav-vertical-align.less" />
+    <None Include="less\mixins\opacity.less" />
+    <None Include="less\mixins\pagination.less" />
+    <None Include="less\mixins\panels.less" />
+    <None Include="less\mixins\progress-bar.less" />
+    <None Include="less\mixins\reset-filter.less" />
+    <None Include="less\mixins\reset-text.less" />
+    <None Include="less\mixins\resize.less" />
+    <None Include="less\mixins\responsive-visibility.less" />
+    <None Include="less\mixins\size.less" />
+    <None Include="less\mixins\tab-focus.less" />
+    <None Include="less\mixins\table-row.less" />
+    <None Include="less\mixins\text-emphasis.less" />
+    <None Include="less\mixins\text-overflow.less" />
+    <None Include="less\mixins\vendor-prefixes.less" />
+    <None Include="Properties\PublishProfiles\FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="templates\2-Col With Authentication.master" />
+    <Content Include="templates\2ColAdmin.master" />
+    <Content Include="templates\2-Col For Characters.master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About-Us\Default.aspx" />
+    <Content Include="css\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="css\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="Default.aspx" />
+    <Content Include="fonts\Default.aspx" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <None Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\npm.js" />
+    <Content Include="UserFiles\AvatarImages\123.png" />
+    <Content Include="UserFiles\AvatarImages\432.png" />
+    <Content Include="UserFiles\AvatarImages\8769.png" />
+    <Content Include="UserFiles\AvatarImages\BG-%282%29.png" />
+    <Content Include="UserFiles\AvatarImages\cdwes.png" />
+    <Content Include="UserFiles\AvatarImages\dis.png" />
+    <Content Include="UserFiles\AvatarImages\gf.png" />
+    <Content Include="UserFiles\AvatarImages\MaleSilhouette.png" />
+    <Content Include="UserFiles\CharacterImages\NewCharacter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About-Us\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About-Us\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account-Recovery\initiate.aspx.cs">
+      <DependentUpon>initiate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account-Recovery\initiate.aspx.designer.cs">
+      <DependentUpon>initiate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account-Recovery\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account-Recovery\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Articles\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Articles\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Characters-Under-Review\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Characters-Under-Review\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Characters\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Characters\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Chat-Rooms\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Chat-Rooms\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Site-Privacy-Policy\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Site-Privacy-Policy\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Site-Funding-Goal\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Site-Funding-Goal\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Stories\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Stories\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Universes\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Universes\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Site-Rules\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Site-Rules\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Purge\AutomatedPurge.aspx.cs">
+      <DependentUpon>AutomatedPurge.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Purge\AutomatedPurge.aspx.designer.cs">
+      <DependentUpon>AutomatedPurge.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Stream-Settings\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Stream-Settings\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Stream-Archive\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Stream-Archive\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Mass-Message\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Mass-Message\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ToDo\Add-Item\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ToDo\Add-Item\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ToDo\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ToDo\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Users\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Users\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\CookieFunctions.cs" />
+    <Compile Include="App_Code\DataFunctions.cs" />
+    <Compile Include="App_Code\ImageFunctions.cs" />
+    <Compile Include="App_Code\MiscFunctions.cs" />
+    <Compile Include="App_Code\NotificationFunctions.cs" />
+    <Compile Include="App_Code\SharedSessionObjects.cs" />
+    <Compile Include="App_Code\StringFunctions.cs" />
+    <Compile Include="Badge\List\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Badge\List\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Character-Art-Commissions\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Character-Art-Commissions\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Character\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Character\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Character\Search\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Character\Search\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat-Rooms\AddChatContent.aspx.cs">
+      <DependentUpon>AddChatContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat-Rooms\AddChatContent.aspx.designer.cs">
+      <DependentUpon>AddChatContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat-Rooms\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat-Rooms\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat-Rooms\GetChatContent.aspx.cs">
+      <DependentUpon>GetChatContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat-Rooms\GetChatContent.aspx.designer.cs">
+      <DependentUpon>GetChatContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Chat-Rooms\Room\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Chat-Rooms\Room\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Coming-Changes\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Coming-Changes\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Donations\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Donations\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\BadRequest\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\BadRequest\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error\TripError.aspx.cs">
+      <DependentUpon>TripError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error\TripError.aspx.designer.cs">
+      <DependentUpon>TripError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FAQ\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="fonts\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fonts\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Functionality-Voting\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Functionality-Voting\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gallery\Image\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gallery\Image\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Logout\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Memberships\Cancel\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Memberships\Cancel\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Memberships\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Memberships\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Memberships\Finish\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Memberships\Finish\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Stories\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Stories\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Stories\Edit-Post\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Stories\Edit-Post\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Stories\Edit-Story\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Stories\Edit-Story\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Characters\Edit-Character\Custom-Profile\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Characters\Edit-Character\Custom-Profile\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Articles\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Articles\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Articles\Edit-Article\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Articles\Edit-Article\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Dashboard\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Dashboard\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Galleries\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Galleries\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Galleries\Edit-Gallery\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Galleries\Edit-Gallery\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Quick-Links\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Quick-Links\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Settings\Change-Password\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Settings\Change-Password\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Settings\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Settings\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Threads\Abandoned-Threads\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Threads\Abandoned-Threads\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Threads\Answered-Threads\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Threads\Answered-Threads\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Chat-Rooms\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Chat-Rooms\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Chat-Rooms\Edit-Chat-Room\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Chat-Rooms\Edit-Chat-Room\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Universes\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Universes\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Universes\Edit-Universe\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Universes\Edit-Universe\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Writing\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Writing\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Writing\Edit-Profile\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Writing\Edit-Profile\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PayPal-IPN\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayPal-IPN\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Public-Areas\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Public-Areas\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Rules\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Rules\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Story\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Story\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Story\List\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Story\List\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Story\Posts\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Story\Posts\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\2-Col For Characters.master.cs">
+      <DependentUpon>2-Col For Characters.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\2-Col For Characters.master.designer.cs">
+      <DependentUpon>2-Col For Characters.master</DependentUpon>
+    </Compile>
+    <Compile Include="templates\2ColAdmin.master.cs">
+      <DependentUpon>2ColAdmin.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\2ColAdmin.master.designer.cs">
+      <DependentUpon>2ColAdmin.master</DependentUpon>
+    </Compile>
+    <Compile Include="Sitemap\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sitemap\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\CharacterListing.ascx.cs">
+      <DependentUpon>CharacterListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\CharacterListing.ascx.designer.cs">
+      <DependentUpon>CharacterListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Threads\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Threads\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Threads\Unanswered-Threads\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Threads\Unanswered-Threads\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Threads\Edit-Thread\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Threads\Edit-Thread\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Threads\Unread-Threads\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Threads\Unread-Threads\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Threads\View-Thread\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Threads\View-Thread\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Characters\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Characters\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My-Characters\Edit-Character\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My-Characters\Edit-Character\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\ReCaptcha.cs" />
+    <Compile Include="Register\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\1-Col.master.cs">
+      <DependentUpon>1-Col.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\1-Col.master.designer.cs">
+      <DependentUpon>1-Col.master</DependentUpon>
+    </Compile>
+    <Compile Include="templates\2-Col With Authentication.master.cs">
+      <DependentUpon>2-Col With Authentication.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\2-Col With Authentication.master.designer.cs">
+      <DependentUpon>2-Col With Authentication.master</DependentUpon>
+    </Compile>
+    <Compile Include="templates\2-Col.master.cs">
+      <DependentUpon>2-Col.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\2-Col.master.designer.cs">
+      <DependentUpon>2-Col.master</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\ChatRoom.ascx.cs">
+      <DependentUpon>ChatRoom.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\ChatRoom.ascx.designer.cs">
+      <DependentUpon>ChatRoom.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\EditStory.ascx.cs">
+      <DependentUpon>EditStory.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\EditStory.ascx.designer.cs">
+      <DependentUpon>EditStory.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\EditArticle.ascx.cs">
+      <DependentUpon>EditArticle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\EditArticle.ascx.designer.cs">
+      <DependentUpon>EditArticle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\EditChatRoom.ascx.cs">
+      <DependentUpon>EditChatRoom.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\EditChatRoom.ascx.designer.cs">
+      <DependentUpon>EditChatRoom.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\EditUniverse.ascx.cs">
+      <DependentUpon>EditUniverse.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\EditUniverse.ascx.designer.cs">
+      <DependentUpon>EditUniverse.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\EditImage.ascx.cs">
+      <DependentUpon>EditImage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\EditImage.ascx.designer.cs">
+      <DependentUpon>EditImage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\EditCharacter.ascx.cs">
+      <DependentUpon>EditCharacter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\EditCharacter.ascx.designer.cs">
+      <DependentUpon>EditCharacter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\EditThread.ascx.cs">
+      <DependentUpon>EditThread.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\EditThread.ascx.designer.cs">
+      <DependentUpon>EditThread.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\endpoints\GetNotificationCounts.aspx.cs">
+      <DependentUpon>GetNotificationCounts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\endpoints\GetNotificationCounts.aspx.designer.cs">
+      <DependentUpon>GetNotificationCounts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\SendAsChanger.ascx.cs">
+      <DependentUpon>SendAsChanger.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\SendAsChanger.ascx.designer.cs">
+      <DependentUpon>SendAsChanger.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\subcontrols\ImageUploadAccordionItem.ascx.cs">
+      <DependentUpon>ImageUploadAccordionItem.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\subcontrols\ImageUploadAccordionItem.ascx.designer.cs">
+      <DependentUpon>ImageUploadAccordionItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\ThreadListing.ascx.cs">
+      <DependentUpon>ThreadListing.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\ThreadListing.ascx.designer.cs">
+      <DependentUpon>ThreadListing.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\UpdateStream.ascx.cs">
+      <DependentUpon>UpdateStream.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\UpdateStream.ascx.designer.cs">
+      <DependentUpon>UpdateStream.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\UserNav.ascx.cs">
+      <DependentUpon>UserNav.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\UserNav.ascx.designer.cs">
+      <DependentUpon>UserNav.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\ViewThread.ascx.cs">
+      <DependentUpon>ViewThread.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\ViewThread.ascx.designer.cs">
+      <DependentUpon>ViewThread.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\controls\VotePrompt.ascx.cs">
+      <DependentUpon>VotePrompt.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\controls\VotePrompt.ascx.designer.cs">
+      <DependentUpon>VotePrompt.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="templates\Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="templates\Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Terms-of-Use\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Terms-of-Use\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Testimonials\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Testimonials\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Article\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Article\List\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Article\List\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Universe\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Universe\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Universe\List\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Universe\List\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Unsubscribe\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Unsubscribe\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VoteForRPG\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VoteForRPG\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome-To-RPG\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Welcome-To-RPG\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Writer\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Writer\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="UserFiles\ProfileTemplates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.S3.3.1.8.1\analyzers\dotnet\cs\AWSSDK.S3.CodeAnalysis.dll" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5400</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5400/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

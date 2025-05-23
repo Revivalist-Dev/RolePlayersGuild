@@ -1,0 +1,4 @@
+﻿User-agent: *
+Disallow: /admin
+
+Sitemap: http://www.roleplayersguild.com/sitemap/main.xml

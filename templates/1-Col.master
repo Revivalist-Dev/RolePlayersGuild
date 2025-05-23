@@ -1,0 +1,10 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/templates/Main.Master" AutoEventWireup="true" CodeBehind="1-Col.master.cs" Inherits="RolePlayersGuild.templates._1_Col" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="FullCol" runat="server"></asp:ContentPlaceHolder>
+    </div>    
+</asp:Content>

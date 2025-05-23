@@ -1,0 +1,192 @@
+﻿body {
+  background-color: #010d1a;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1a243f+44,010d1a+100 */
+  background-image: -moz-linear-gradient(top, #1a243f 44%, #010d1a 100%);
+  /* FF3.6-15 */
+  background-image: -webkit-linear-gradient(top, #1a243f 44%, #010d1a 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background-image: linear-gradient(to bottom, #1a243f 44%, #010d1a 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1a243f', endColorstr='#010d1a', GradientType=0);
+  /* IE6-9 */
+  /*background-attachment: fixed;*/
+  color: #e5e8ff;
+}
+legend {
+  color: #e5e8ff;
+}
+.StyledArticle,
+.StyledUniverse {
+  border: 1px solid #cecece;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0px 0px 15px 0px black;
+}
+.thumbnail,
+.FullThread .ThreadMessage:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.5);
+}
+.AvailableBadgeListing .Badge {
+  background: #1a243f;
+  border: 1px solid #e5e8ff;
+  box-shadow: inset 0 0 50px 10px #010d1a;
+}
+.UserOnline img {
+  display: none;
+}
+.ThreadListing .Thread {
+  background: #04274a;
+}
+.FullThread,
+.FullThread .ThreadMessage:nth-child(even) {
+  background: #010F1F;
+}
+.ThreadListing .Thread.Unread {
+  background: #084c93;
+}
+.ThreadListing .Thread.Unread .Details a.Title {
+  color: #F0AD4E;
+}
+.ToDoList {
+  background: #01060b;
+}
+.UserNav {
+  border: 1px solid #13111f;
+}
+.UserNav ul li.Separator {
+  border-bottom: 1px solid #0e263d;
+}
+.SideBar {
+  background: #000;
+  background: rgba(0, 0, 0, 0.5);
+}
+.SideBar .SearchFiltering .FancyCheck input[type=checkbox] + label {
+  color: #fff;
+}
+.FunctionalitySuggestions .Suggestion {
+  background: #282828;
+}
+.btn-primary {
+  background-color: #1a367a;
+  border-color: #112963;
+}
+.btn-info {
+  background-color: #00909f;
+  border-color: #00565f;
+}
+.btn-success {
+  background-color: #019f13;
+  border-color: #00820f;
+}
+.btn-danger {
+  background-color: #780000;
+  border-color: #5b0202;
+}
+option,
+input,
+select {
+  background: #282828;
+  color: #cccccc;
+}
+.form-control {
+  background: #282828;
+  color: #cccccc;
+  box-shadow: inset 0 1px 1px #000000;
+}
+.alert-info {
+  background-color: #79A6BD;
+  border-color: #3A7986;
+  color: #0e0e0e;
+}
+.alert-notice {
+  background: rgba(0, 0, 0, 0.5);
+  color: #626262;
+}
+.alert-notice strong {
+  color: #651010;
+}
+.modal-content {
+  background: #121212;
+}
+.TextCharacterList .Character {
+  background: #525252;
+}
+.ChatArea .ChatPosts {
+  box-shadow: 0 0 30px 0px black inset;
+  background: rgba(0, 0, 0, 0.5);
+}
+.UserOnline {
+  color: #c44a1b;
+}
+.CharacterListing .Character.Online .thumbnail,
+.ThreadUsers span.Online {
+  box-shadow: 0 0 10px 0 #c44a1b;
+}
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+  background: #000;
+}
+.Testimonials .Testimonial blockquote {
+  background: #031629;
+}
+.panel-default {
+  border-color: #333;
+}
+.panel-default > .panel-heading {
+  color: #ddd;
+  background-color: #333;
+  border-color: #333;
+}
+.panel {
+  background: none;
+}
+.panel-body {
+  background: #000;
+  background: rgba(0, 0, 0, 0.5);
+}
+.panel-primary {
+  border-color: #112963;
+}
+.panel-primary .panel-heading {
+  background-color: #1a367a;
+  border-color: #112963;
+}
+/*background-color: #1a367a;
+    border-color: #112963;*/
+.panel .list-group .list-group-item {
+  background: #000;
+  background: rgba(0, 0, 0, 0.5);
+  border-color: #222;
+}
+.panel .list-group .list-group-item.list-group-item-info {
+  background: #D9EDF7;
+}
+.panel .panel-footer {
+  background: #111;
+  background: rgba(17, 17, 17, 0.5);
+  border-color: #222;
+}
+a.CreatorLink {
+  color: #7e00ce;
+}
+a.MasterCreatorLink {
+  color: #7e00ce;
+  text-shadow: #7e00ce 0 0 10px;
+  transition: all 0.5s ease-in-out 0s;
+}
+a.MasterCreatorLink:hover {
+  color: #7e00ce;
+  text-shadow: #7e00ce 0 0 4px;
+}
+.popover {
+  color: #222;
+}
+.WritingContentList .WritingContentBox {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 1px solid #13111f;
+  padding: 10px;
+  color: slategray;
+}
+.ContentListing {
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 3px 5px 0 #000;
+}
