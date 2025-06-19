@@ -1,0 +1,16 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/templates/Main.Master" AutoEventWireup="true" CodeBehind="2-Col.master.cs" Inherits="RolePlayersGuild.templates._2_Col" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:Panel runat="server" ID="pnlTopRow" CssClass="col-xs-12">
+        <asp:ContentPlaceHolder ID="cphTopRow" runat="server"></asp:ContentPlaceHolder>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlLeftCol" CssClass="col-sm-4">
+        <asp:ContentPlaceHolder ID="cphLeftCol" runat="server"></asp:ContentPlaceHolder>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlRightCol" CssClass="col-sm-8">
+        <asp:ContentPlaceHolder ID="cphRightCol" runat="server"></asp:ContentPlaceHolder>
+    </asp:Panel>
+</asp:Content>

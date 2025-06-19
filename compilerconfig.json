@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "css/main.css",
+    "inputFile": "css/main.less"
+  },
+  {
+    "outputFile": "less/bootstrap.css",
+    "inputFile": "less/bootstrap.less"
+  },
+  {
+    "outputFile": "less/theme.css",
+    "inputFile": "less/theme.less"
+  },
+  {
+    "outputFile": "css/darktheme.css",
+    "inputFile": "css/darktheme.less"
+  }
+]

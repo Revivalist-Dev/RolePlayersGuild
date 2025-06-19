@@ -1,0 +1,2 @@
+F:\GitHub\RolePlayersGuild\obj\Debug\RolePlayersGuild.csproj.AssemblyReference.cache
+F:\GitHub\RolePlayersGuild\obj\Debug\RolePlayersGuild.csproj.CoreCompileInputs.cache

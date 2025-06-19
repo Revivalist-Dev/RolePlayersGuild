@@ -1,0 +1,45 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/templates/Main.Master" AutoEventWireup="true" CodeBehind="2ColAdmin.master.cs" Inherits="RolePlayersGuild.templates._2ColAdmin" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="cphHead" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <asp:ContentPlaceHolder ID="cphTop" runat="server"></asp:ContentPlaceHolder>
+    <asp:Panel runat="server" ID="pnlLeftCol" CssClass="col-sm-4">
+        <asp:ContentPlaceHolder ID="cphLeftCol" runat="server"></asp:ContentPlaceHolder>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="pnlRightCol" CssClass="col-sm-8">
+        <asp:ContentPlaceHolder ID="cphRightCol" runat="server"></asp:ContentPlaceHolder>
+    </asp:Panel>
+    <asp:ContentPlaceHolder ID="cphBottom" runat="server"></asp:ContentPlaceHolder>
+
+    <div class="modal fade" id="SessionTimeoutModal" tabindex="-1" role="dialog" aria-labelledby="SessionTimeoutLabel" runat="server" clientidmode="Static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content alert-warning">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="SessionTimeoutLabel">Session Expired</h4>
+                </div>
+                <div class="modal-body">
+                    <p>It has been 3 hours since your last action. </p>
+                    <p>Your session has expired. </p>
+                    <p>If you try to save/send anything, it will not be processed. Please make sure you <strong>copy your work before clicking anything else</strong>, as it will not be saved and you will be logged out once you do.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</asp:Content>
+<asp:Content ID="scripts" ContentPlaceHolderID="scripts" runat="server">
+    <asp:ContentPlaceHolder ID="cphScripts" runat="server"></asp:ContentPlaceHolder>
+    <script>
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('#SessionTimeoutModal').modal('show');
+            }, 10800100); // milliseconds
+        });
+    </script>
+</asp:Content>

@@ -1,0 +1,198 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\Visual Studio\\RolePlayersGuild\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|f:\\visual studio\\roleplayersguild\\utils\\imagefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:utils\\imagefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\admin\\purge\\automatedpurge.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:admin\\purge\\automatedpurge.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\templates\\controls\\editcharacter.ascx||{F390D63C-F7D8-4E74-AA04-57C1ECF53D4D}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:templates\\controls\\editcharacter.ascx||{F390D63C-F7D8-4E74-AA04-57C1ECF53D4D}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\report\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:report\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\admin\\todo\\add-item\\default.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:admin\\todo\\add-item\\default.aspx.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\my-dashboard\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:my-dashboard\\default.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\functionality-voting\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:functionality-voting\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\admin\\todo\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:admin\\todo\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\admin\\todo\\add-item\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:admin\\todo\\add-item\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\my-dashboard\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:my-dashboard\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ImageFunctions.cs",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Utils\\ImageFunctions.cs",
+              "RelativeDocumentMoniker": "Utils\\ImageFunctions.cs",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Utils\\ImageFunctions.cs",
+              "RelativeToolTip": "Utils\\ImageFunctions.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAWwC8AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T03:47:47.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AutomatedPurge.aspx.cs",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\Purge\\AutomatedPurge.aspx.cs",
+              "RelativeDocumentMoniker": "Admin\\Purge\\AutomatedPurge.aspx.cs",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\Purge\\AutomatedPurge.aspx.cs",
+              "RelativeToolTip": "Admin\\Purge\\AutomatedPurge.aspx.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAjwDsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-18T03:47:26.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EditCharacter.ascx",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\templates\\controls\\EditCharacter.ascx",
+              "RelativeDocumentMoniker": "templates\\controls\\EditCharacter.ascx",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\templates\\controls\\EditCharacter.ascx",
+              "RelativeToolTip": "templates\\controls\\EditCharacter.ascx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003302|",
+              "WhenOpened": "2025-06-17T22:14:35.625Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Default.aspx.designer.cs",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Add-Item\\Default.aspx.designer.cs",
+              "RelativeDocumentMoniker": "Admin\\ToDo\\Add-Item\\Default.aspx.designer.cs",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Add-Item\\Default.aspx.designer.cs",
+              "RelativeToolTip": "Admin\\ToDo\\Add-Item\\Default.aspx.designer.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAwDMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T20:30:09.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\My-Dashboard\\Default.aspx",
+              "RelativeDocumentMoniker": "My-Dashboard\\Default.aspx",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\My-Dashboard\\Default.aspx",
+              "RelativeToolTip": "My-Dashboard\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-17T20:26:30.125Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Default.aspx.cs",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\My-Dashboard\\Default.aspx.cs",
+              "RelativeDocumentMoniker": "My-Dashboard\\Default.aspx.cs",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\My-Dashboard\\Default.aspx.cs",
+              "RelativeToolTip": "My-Dashboard\\Default.aspx.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAADwvxIAAAB3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-17T20:26:18.637Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Report\\Default.aspx",
+              "RelativeDocumentMoniker": "Report\\Default.aspx",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Report\\Default.aspx",
+              "RelativeToolTip": "Report\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-17T20:26:12.745Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Functionality-Voting\\Default.aspx",
+              "RelativeDocumentMoniker": "Functionality-Voting\\Default.aspx",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Functionality-Voting\\Default.aspx",
+              "RelativeToolTip": "Functionality-Voting\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-17T20:26:08.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Default.aspx",
+              "RelativeDocumentMoniker": "Admin\\ToDo\\Default.aspx",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Default.aspx",
+              "RelativeToolTip": "Admin\\ToDo\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-17T20:26:03.525Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Add-Item\\Default.aspx",
+              "RelativeDocumentMoniker": "Admin\\ToDo\\Add-Item\\Default.aspx",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Add-Item\\Default.aspx",
+              "RelativeToolTip": "Admin\\ToDo\\Add-Item\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-17T20:26:00.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Web.config",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Web.config",
+              "RelativeDocumentMoniker": "Web.config",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Web.config",
+              "RelativeToolTip": "Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-06-17T19:45:40.27Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
