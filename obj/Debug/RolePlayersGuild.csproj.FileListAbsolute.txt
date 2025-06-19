@@ -1,2 +1,4 @@
-F:\GitHub\RolePlayersGuild\obj\Debug\RolePlayersGuild.csproj.AssemblyReference.cache
-F:\GitHub\RolePlayersGuild\obj\Debug\RolePlayersGuild.csproj.CoreCompileInputs.cache
+F:\Visual Studio\RolePlayersGuild\obj\Debug\RolePlayersGuild.csproj.AssemblyReference.cache
+F:\Visual Studio\RolePlayersGuild\obj\Debug\RolePlayersGuild.Properties.Resources.resources
+F:\Visual Studio\RolePlayersGuild\obj\Debug\RolePlayersGuild.csproj.GenerateResource.cache
+F:\Visual Studio\RolePlayersGuild\obj\Debug\RolePlayersGuild.csproj.CoreCompileInputs.cache

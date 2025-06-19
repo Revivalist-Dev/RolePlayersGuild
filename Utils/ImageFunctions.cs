@@ -1,164 +1,180 @@
-﻿using Amazon.S3;
+﻿using Amazon;
+using Amazon.S3;
 using Amazon.S3.IO;
 using Amazon.S3.Transfer;
 using System;
-using Amazon; // Make sure this is included at the top of the file
 using System.Configuration;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Web;
+using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace RolePlayersGuild
 {
     public class ImageFunctions
     {
-        public static void DeleteImage(string ImageName)
+        private static readonly string BucketName = ConfigurationManager.AppSettings["AWSBucketName"];
+        private static readonly string VirtualDir = ConfigurationManager.AppSettings["CharacterImagesFolder"];
+        private static readonly RegionEndpoint AwsRegion = RegionEndpoint.GetBySystemName("us-east-2");
+
+        private static AmazonS3Client GetS3Client()
         {
-            string directoryVirtual = ConfigurationManager.AppSettings["CharacterImagesFolder"].ToString();
-            string bucketName = ConfigurationManager.AppSettings["AWSBucketName"].ToString();
             string awsAccessKey = ConfigurationManager.AppSettings["AWSAccessKey"];
             string awsSecretKey = ConfigurationManager.AppSettings["AWSSecretKey"];
+            return new AmazonS3Client(awsAccessKey, awsSecretKey, AwsRegion);
+        }
 
-            // Initialize AmazonS3Client with credentials and region via GetBySystemName
-            AmazonS3Client AWSClient = new AmazonS3Client(awsAccessKey, awsSecretKey, Amazon.RegionEndpoint.GetBySystemName("us-east-2")); // Changed to GetBySystemName
+        public static void DeleteImage(string imageName)
+        {
+            if (string.IsNullOrEmpty(imageName)) return;
 
-            S3FileInfo s3FullFileInfo = new S3FileInfo(AWSClient, bucketName, directoryVirtual + "fullimg_" + ImageName);
+            AmazonS3Client awsClient = GetS3Client();
+
+            S3FileInfo s3FullFileInfo = new S3FileInfo(awsClient, BucketName, VirtualDir + "fullimg_" + imageName);
             if (s3FullFileInfo.Exists)
             {
                 s3FullFileInfo.Delete();
             }
-            S3FileInfo s3ThumbFileInfo = new S3FileInfo(AWSClient, bucketName, directoryVirtual + "thumbimg_" + ImageName);
+
+            S3FileInfo s3ThumbFileInfo = new S3FileInfo(awsClient, BucketName, VirtualDir + "thumbimg_" + imageName);
             if (s3ThumbFileInfo.Exists)
             {
                 s3ThumbFileInfo.Delete();
             }
         }
-        public static string UploadImage(FileUpload fuCharacterProfileImage)
+
+        public static string UploadImage(FileUpload uploadedFile)
         {
-            if (fuCharacterProfileImage.HasFile)
+            if (!uploadedFile.HasFile || uploadedFile.PostedFile.ContentLength == 0) return "";
+
+            string mimeType = uploadedFile.PostedFile.ContentType.ToLowerInvariant();
+            ImageFormat outputFormat = GetImageFormatFromMimeType(mimeType);
+            string fileExtension = GetExtensionFromMimeType(mimeType);
+
+            if (outputFormat == null) return ""; // Unsupported file type
+
+            string uniqueFileName = GenerateUniqueS3FileName(fileExtension);
+            if (string.IsNullOrEmpty(uniqueFileName)) return "";
+
+            using (var originalBmp = new Bitmap(uploadedFile.FileContent))
             {
-                string fileExtension = Path.GetExtension(fuCharacterProfileImage.PostedFile.FileName);
-
-                string awsAccessKey = ConfigurationManager.AppSettings["AWSAccessKey"];
-                string awsSecretKey = ConfigurationManager.AppSettings["AWSSecretKey"];
-                // Initialize AmazonS3Client with credentials and region via GetBySystemName
-                AmazonS3Client AWSClient = new AmazonS3Client(awsAccessKey, awsSecretKey, Amazon.RegionEndpoint.GetBySystemName("us-east-2")); // Changed to GetBySystemName
-
-                string directoryVirtual = ConfigurationManager.AppSettings["CharacterImagesFolder"].ToString();
-                string bucketName = ConfigurationManager.AppSettings["AWSBucketName"].ToString();
-
-                int fileNameCharacterLength = 4;
-                string fileName = StringFunctions.GenerateRandomString(fileNameCharacterLength);
-
-                S3FileInfo s3FullFileInfo = new S3FileInfo(AWSClient, bucketName, directoryVirtual + "fullimg_" + fileName + fileExtension);
-                S3FileInfo s3ThumbFileInfo = new S3FileInfo(AWSClient, bucketName, directoryVirtual + "thumbimg_" + fileName + fileExtension);
-
-                while (s3FullFileInfo.Exists || s3ThumbFileInfo.Exists)
-                {
-                    fileNameCharacterLength += 1;
-                    fileName = StringFunctions.GenerateRandomString(fileNameCharacterLength);
-                    // Re-instantiate S3FileInfo objects with new filename to check existence
-                    s3FullFileInfo = new S3FileInfo(AWSClient, bucketName, directoryVirtual + "fullimg_" + fileName + fileExtension);
-                    s3ThumbFileInfo = new S3FileInfo(AWSClient, bucketName, directoryVirtual + "thumbimg_" + fileName + fileExtension);
-                }
-
-                Bitmap originalBMP = new Bitmap(fuCharacterProfileImage.FileContent);
-
-                var newWidth = originalBMP.Width;
-                var newHeight = originalBMP.Height;
-                double maxWidth = 900;
-                double maxHeight = 1200;
-
-                if (newWidth > maxWidth || newHeight > maxHeight)
-                {
-                    // Calculate the new image dimensions
-                    var ratioX = maxWidth / originalBMP.Width;
-                    var ratioY = maxHeight / originalBMP.Height;
-                    var ratio = Math.Min(ratioX, ratioY);
-
-                    newWidth = (int)(originalBMP.Width * ratio);
-                    newHeight = (int)(originalBMP.Height * ratio);
-                }
-
-                Bitmap newBMP = new Bitmap(newWidth, newHeight);
-                Graphics oGraphics = Graphics.FromImage(newBMP);
-
-                oGraphics.DrawImage(originalBMP, 0, 0, newWidth, newHeight);
-
-                TransferUtility fileTransferUtility = new TransferUtility(AWSClient);
-                using (var FullImgStream = new MemoryStream())
-                {
-                    ImageCodecInfo jpegCodec = GetEncoderInfo("image/jpeg");
-                    EncoderParameters encoderParameters = new EncoderParameters(1);
-                    encoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, 100L); ;
-
-                    newBMP.Save(FullImgStream, jpegCodec, encoderParameters);
-                    FullImgStream.Position = 0;
-                    fileTransferUtility.Upload(FullImgStream, bucketName, directoryVirtual + "fullimg_" + fileName + fileExtension);
-                }
-                newBMP.Dispose();
-                oGraphics.Dispose();
-
-
-                var newThumbWidth = originalBMP.Width;
-                var newThumbHeight = originalBMP.Height;
-                double maxThumbWidth = 300;
-                double maxThumbHeight = 300;
-
-                if (newThumbWidth > maxThumbWidth || newThumbWidth > maxThumbHeight)
-                {
-                    // Calculate the new image dimensions
-                    var ratioX = maxThumbWidth / originalBMP.Width;
-                    var ratioY = maxThumbHeight / originalBMP.Height;
-                    var ratio = Math.Min(ratioX, ratioY);
-
-                    newThumbWidth = (int)(originalBMP.Width * ratio);
-                    newThumbHeight = (int)(originalBMP.Height * ratio);
-                }
-
-                Bitmap newThumbBMP = new Bitmap(newThumbWidth, newThumbHeight);
-                Graphics oThumbGraphics = Graphics.FromImage(newThumbBMP);
-
-                oThumbGraphics.DrawImage(originalBMP, 0, 0, newThumbWidth, newThumbHeight);
-
-                using (var ThumbImgStream = new MemoryStream())
-                {
-                    ImageCodecInfo jpegCodec = GetEncoderInfo("image/jpeg");
-                    EncoderParameters encoderParameters = new EncoderParameters(1);
-                    encoderParameters.Param[0] = new EncoderParameter(Encoder.Quality, 94L); ;
-
-                    newThumbBMP.Save(ThumbImgStream, jpegCodec, encoderParameters);
-                    ThumbImgStream.Position = 0;
-                    fileTransferUtility.Upload(ThumbImgStream, bucketName, directoryVirtual + "thumbimg_" + fileName + fileExtension);
-                }
-                newThumbBMP.Dispose();
-                oThumbGraphics.Dispose();
-
-                originalBMP.Dispose();
-
-                string fullFilePath = fileName + fileExtension;
-
-                return fullFilePath;
+                UploadResizedImage(originalBmp, "fullimg_" + uniqueFileName, 900, 1200, outputFormat);
+                UploadResizedImage(originalBmp, "thumbimg_" + uniqueFileName, 300, 300, outputFormat);
             }
-            else
+
+            return uniqueFileName;
+        }
+
+        private static void UploadResizedImage(System.Drawing.Image originalImage, string s3Key, int maxWidth, int maxHeight, ImageFormat format)
+        {
+            using (Bitmap resizedBmp = ResizeImage(originalImage, maxWidth, maxHeight))
+            using (var memoryStream = new MemoryStream())
             {
-                return "";
+                if (format.Equals(ImageFormat.Jpeg))
+                {
+                    ImageCodecInfo jpegCodec = GetEncoderInfo("image/jpeg");
+                    EncoderParameters encoderParams = new EncoderParameters(1);
+                    encoderParams.Param[0] = new EncoderParameter(Encoder.Quality, 95L);
+                    resizedBmp.Save(memoryStream, jpegCodec, encoderParams);
+                }
+                else
+                {
+                    resizedBmp.Save(memoryStream, format);
+                }
+
+                memoryStream.Position = 0;
+                UploadStreamToS3(memoryStream, s3Key);
             }
         }
+
+        private static void UploadStreamToS3(Stream stream, string s3Key)
+        {
+            using (var awsClient = GetS3Client())
+            using (var fileTransferUtility = new TransferUtility(awsClient))
+            {
+                fileTransferUtility.Upload(stream, BucketName, VirtualDir + s3Key);
+            }
+        }
+
+        private static Bitmap ResizeImage(System.Drawing.Image image, int maxWidth, int maxHeight)
+        {
+            var ratioX = (double)maxWidth / image.Width;
+            var ratioY = (double)maxHeight / image.Height;
+            var ratio = Math.Min(ratioX, ratioY);
+
+            if (ratio >= 1.0) return new Bitmap(image);
+
+            var newWidth = (int)(image.Width * ratio);
+            var newHeight = (int)(image.Height * ratio);
+
+            var newImage = new Bitmap(newWidth, newHeight);
+            using (var graphics = Graphics.FromImage(newImage))
+            {
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.DrawImage(image, 0, 0, newWidth, newHeight);
+            }
+            return newImage;
+        }
+
+        private static string GenerateUniqueS3FileName(string extension)
+        {
+            using (var awsClient = GetS3Client())
+            {
+                int fileNameLength = 4;
+                while (fileNameLength < 10)
+                {
+                    string randomName = StringFunctions.GenerateRandomString(fileNameLength);
+                    string fullFileName = randomName + extension;
+                    S3FileInfo s3FileInfo = new S3FileInfo(awsClient, BucketName, VirtualDir + "fullimg_" + fullFileName);
+                    if (!s3FileInfo.Exists)
+                    {
+                        return fullFileName;
+                    }
+                    fileNameLength++;
+                }
+            }
+            return null; // Should realistically never happen
+        }
+
         private static ImageCodecInfo GetEncoderInfo(string mimeType)
         {
-            // Get image codecs for all image formats
-            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+            return ImageCodecInfo.GetImageEncoders().FirstOrDefault(codec => codec.MimeType == mimeType);
+        }
 
-            // Find the correct image codec
-            for (int i = 0; i < codecs.Length; i++)
-                if (codecs[i].MimeType == mimeType)
-                    return codecs[i];
+        private static ImageFormat GetImageFormatFromMimeType(string mimeType)
+        {
+            switch (mimeType)
+            {
+                case "image/jpeg":
+                case "image/jpg":
+                    return ImageFormat.Jpeg;
+                case "image/png":
+                    return ImageFormat.Png;
+                case "image/gif":
+                    return ImageFormat.Gif;
+                default:
+                    return null;
+            }
+        }
 
-            return null;
+        private static string GetExtensionFromMimeType(string mimeType)
+        {
+            switch (mimeType)
+            {
+                case "image/jpeg":
+                case "image/jpg":
+                    return ".jpg";
+                case "image/png":
+                    return ".png";
+                case "image/gif":
+                    return ".gif";
+                default:
+                    return "";
+            }
         }
     }
 }

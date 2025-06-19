@@ -12,7 +12,7 @@
                 <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2">
                     <div class="Badge">
                         <div class="Title">
-                            <a href="#" class="<%# Eval("CharacterNameClass") %>"><%# Eval("BadgeName") %></a>
+                            <a href="#"><%# Eval("BadgeName") %></a>
                         </div>
                         <img src="<%# Eval("BadgeImageURL") %>" />
                         <span><%# Eval("HowToGetBadge") %></span>
@@ -21,5 +21,5 @@
             </ItemTemplate>
         </asp:Repeater>
     </div>
-    <asp:SqlDataSource ID="sdsBadges" runat="server" ConnectionString="<%$ ConnectionStrings:RolePlayersGuild.Properties.Settings.rpgDBConn %>" SelectCommand="SELECT BadgeName, BadgeImageURL, HowToGetBadge, CharacterNameClass FROM Badges ORDER BY SortOrder"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sdsBadges" runat="server" ConnectionString="<%$ ConnectionStrings:RolePlayersGuild.Properties.Settings.rpgDBConn %>" SelectCommand="SELECT BadgeName, BadgeImageURL, HowToGetBadge FROM Badges ORDER BY SortOrder"></asp:SqlDataSource>
 </asp:Content>

@@ -109,7 +109,14 @@ namespace RolePlayersGuild.Writer
 
                         //litSexualOrientation.Text = drCharacter["SexualOrientation"].ToString();
                         //litErotica.Text = drCharacter["EroticaPreference"].ToString();
-                        //litLastLogin.Text = String.Format("{0:MMMM dd, yyyy}", DateTime.Parse(drCharacter["LastLogin"].ToString()));
+                        //if (drCharacter["LastLogin"] != DBNull.Value)
+                        //{
+                        //    litLastLogin.Text = String.Format("{0:MMMM dd, yyyy}", DateTime.Parse(drCharacter["LastLogin"].ToString()));
+                        //}
+                        //        else
+                        //{
+                        //    litLastLogin.Text = "N/A";
+                        //}
                         //litGender.Text = drCharacter["Gender"].ToString();
                         //litLiteracyLevel.Text = drCharacter["LiteracyLevel"].ToString();
                         //litPostLengthMin.Text = drCharacter["PostLengthMin"].ToString();

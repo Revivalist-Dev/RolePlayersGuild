@@ -79,15 +79,33 @@ namespace RolePlayersGuild
             byte[] decodedValue = MachineKey.Unprotect(stream, purpose);
             return Encoding.UTF8.GetString(decodedValue);
         }
-        public static string DisplayImageString(string imageString, string size, bool IsMature = false)
+        public static string DisplayImageString(string imageString, string size)
         {
-            if (IsMature) { return ConfigurationManager.AppSettings["DisplayCharacterImagesFolder"].ToString() + "AdultsOnly.jpg"; }
-            else {
-                if (imageString.Length > 0)
-                { return ConfigurationManager.AppSettings["DisplayCharacterImagesFolder"].ToString() + size + "img_" + imageString; }
+            if (!string.IsNullOrEmpty(imageString))
+            {
+                // If it's already a full URL, just return it.
+                if (imageString.Contains("http"))
+                {
+                    return imageString;
+                }
                 else
-                { return ConfigurationManager.AppSettings["DisplayCharacterImagesFolder"].ToString() + "NewCharacter.png"; }
+                {
+                    // Otherwise, build the S3 URL
+                    string imageBaseUrl = "http://images.roleplayersguild.com/CharacterImages/";
+                    switch (size.ToLower())
+                    {
+                        case "thumb":
+                            return imageBaseUrl + "thumbimg_" + imageString;
+                        case "full":
+                            // CORRECTED: Added the 'fullimg_' prefix
+                            return imageBaseUrl + "fullimg_" + imageString;
+                        default:
+                            return imageBaseUrl + "thumbimg_" + imageString;
+                    }
+                }
             }
+            // Return a default image if no image string is provided.
+            return "/Images/DefaultUser.png";
         }
         public static string GenerateRandomString(int StringLength, string AllowedCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLOMNOPQRSTUVWXYZ1234567890")
         {

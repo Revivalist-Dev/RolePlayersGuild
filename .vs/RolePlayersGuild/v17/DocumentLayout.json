@@ -1,6 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "F:\\Visual Studio\\RolePlayersGuild\\",
+<<<<<<< Updated upstream
   "Documents": [
     {
       "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
@@ -47,10 +48,14 @@
       "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:my-dashboard\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
+=======
+  "Documents": [],
+>>>>>>> Stashed changes
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
+<<<<<<< Updated upstream
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -193,6 +198,9 @@
           ]
         }
       ]
+=======
+      "DocumentGroups": []
+>>>>>>> Stashed changes
     }
   ]
 }
