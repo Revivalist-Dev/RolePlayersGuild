@@ -1,14 +1,17 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "F:\\Visual Studio\\RolePlayersGuild\\",
-<<<<<<< Updated upstream
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|f:\\visual studio\\roleplayersguild\\badge\\list\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:badge\\list\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|f:\\visual studio\\roleplayersguild\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|f:\\visual studio\\roleplayersguild\\utils\\imagefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|F:\\Visual Studio\\RolePlayersGuild\\utils\\imagefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:utils\\imagefunctions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -48,22 +51,31 @@
       "RelativeMoniker": "D:0:0:{F8D5CCF7-ADC6-4856-9B9A-519929B341BC}|RolePlayersGuild.csproj|solutionrelative:my-dashboard\\default.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
     }
   ],
-=======
-  "Documents": [],
->>>>>>> Stashed changes
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-<<<<<<< Updated upstream
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Default.aspx",
+              "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Badge\\List\\Default.aspx",
+              "RelativeDocumentMoniker": "Badge\\List\\Default.aspx",
+              "ToolTip": "F:\\Visual Studio\\RolePlayersGuild\\Badge\\List\\Default.aspx",
+              "RelativeToolTip": "Badge\\List\\Default.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-06-19T00:15:15.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "ImageFunctions.cs",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Utils\\ImageFunctions.cs",
               "RelativeDocumentMoniker": "Utils\\ImageFunctions.cs",
@@ -71,12 +83,11 @@
               "RelativeToolTip": "Utils\\ImageFunctions.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAWwC8AAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T03:47:47.12Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-18T03:47:47.12Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "AutomatedPurge.aspx.cs",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\Purge\\AutomatedPurge.aspx.cs",
               "RelativeDocumentMoniker": "Admin\\Purge\\AutomatedPurge.aspx.cs",
@@ -88,7 +99,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "EditCharacter.ascx",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\templates\\controls\\EditCharacter.ascx",
               "RelativeDocumentMoniker": "templates\\controls\\EditCharacter.ascx",
@@ -100,7 +111,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Default.aspx.designer.cs",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Add-Item\\Default.aspx.designer.cs",
               "RelativeDocumentMoniker": "Admin\\ToDo\\Add-Item\\Default.aspx.designer.cs",
@@ -112,7 +123,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Default.aspx",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\My-Dashboard\\Default.aspx",
               "RelativeDocumentMoniker": "My-Dashboard\\Default.aspx",
@@ -124,7 +135,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Default.aspx.cs",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\My-Dashboard\\Default.aspx.cs",
               "RelativeDocumentMoniker": "My-Dashboard\\Default.aspx.cs",
@@ -136,7 +147,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Default.aspx",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Report\\Default.aspx",
               "RelativeDocumentMoniker": "Report\\Default.aspx",
@@ -148,7 +159,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Default.aspx",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Functionality-Voting\\Default.aspx",
               "RelativeDocumentMoniker": "Functionality-Voting\\Default.aspx",
@@ -160,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Default.aspx",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Default.aspx",
               "RelativeDocumentMoniker": "Admin\\ToDo\\Default.aspx",
@@ -172,7 +183,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "Default.aspx",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Admin\\ToDo\\Add-Item\\Default.aspx",
               "RelativeDocumentMoniker": "Admin\\ToDo\\Add-Item\\Default.aspx",
@@ -184,7 +195,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Web.config",
               "DocumentMoniker": "F:\\Visual Studio\\RolePlayersGuild\\Web.config",
               "RelativeDocumentMoniker": "Web.config",
@@ -198,9 +209,6 @@
           ]
         }
       ]
-=======
-      "DocumentGroups": []
->>>>>>> Stashed changes
     }
   ]
 }
