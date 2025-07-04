@@ -27,7 +27,7 @@ namespace RolePlayersGuild.Gallery
         }
         protected string DisplayImageString(string imageString, string size, object IsMature)
         {
-            return StringFunctions.DisplayImageString(imageString, size, (bool)IsMature);
+            return StringFunctions.DisplayImageString(imageString, size);
         }
         protected string MatureContentWarning(object IsMature)
         {

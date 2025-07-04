@@ -46,7 +46,7 @@
                                 <a href="/My-Threads/View-Thread?ThreadID=<%# Eval("ThreadID") %>" class="Title"><%# Eval("ThreadTitle") %></a>
                                 <span class="Status">
                                     <asp:Literal ID="litReadStatus" runat="server" ClientIDMode="Predictable"></asp:Literal>
-                                    - Last Updated: <%# ShowTimeAgo(Eval("LastUpdateDate").ToString()) %></span>
+                                    - Last Updated: <%# Eval("LastUpdateDate") == DBNull.Value ? "No messages yet" : ShowTimeAgo(Eval("LastUpdateDate").ToString()) %></span>
                                 <div class="ThreadUsers">
                                     <asp:Repeater ID="rptCharacters" runat="server">
                                         <ItemTemplate>

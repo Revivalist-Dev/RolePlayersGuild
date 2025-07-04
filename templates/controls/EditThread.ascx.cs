@@ -266,12 +266,13 @@ namespace RolePlayersGuild.templates.controls
             {
                 if (int.TryParse(rblMyCharacters.SelectedValue, out SendAsID))
                 {
-                    //var rpgThreadUsers = new rpgDBTableAdapters.Thread_UsersTableAdapter();
-                    //rpgDB.Thread_UsersDataTable dtThreadUsers = rpgThreadUsers.GetThreadByThreadIDAndUserID((int) int.Parse());
                     DataTable dtThreads = DataFunctions.Tables.GetThreadDetailsForUser(int.Parse(Request.QueryString["ThreadID"]));
                     if (dtThreads.Rows.Count > 0)
                     {
                         DataFunctions.Inserts.InsertMessage(int.Parse(Request.QueryString["ThreadID"]), SendAsID, HttpUtility.HtmlEncode(txtPostContent.Text));
+
+                        DataFunctions.Commands.Command("UPDATE Threads SET LastMessage = GETDATE() WHERE ThreadID = @ParamOne", int.Parse(Request.QueryString["ThreadID"]));
+
                         DataFunctions.Updates.MarkUnreadForOthersOnThread(int.Parse(Request.QueryString["ThreadID"]));
                         NotificationFunctions.NewItemAlert(Request.QueryString["ThreadID"].ToString(), SendAsID.ToString(), "Message");
                         Response.Redirect("/My-Threads/View-Thread/?ThreadID=" + Request.QueryString["ThreadID"].ToString(), true);

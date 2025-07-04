@@ -1103,15 +1103,48 @@ GO
 
 CREATE VIEW [dbo].[CharactersWithDetails] AS
 SELECT
-    C.CharacterID, C.UserID, C.CharacterDisplayName, C.CharacterFirstName, C.CharacterMiddleName, C.CharacterLastName, C.IsActive, C.IsApproved, C.ProfileCSS, C.LastUpdated, C.DateSubmitted, C.SubmittedBy,
-    C.IsPrivate, C.ProfileHTML, C.LFRPStatus, C.DisableLinkify, C.CharacterBio, C.CharacterGender, C.MatureContent, C.EroticaPreferences,
-    C.CharacterSourceID, C.CharacterStatusID, C.TypeID, C.CustomProfileEnabled, U.Username, U.EmailAddress, U.LastAction, U.ShowWhenOnline, U.IsAdmin, U.ShowWriterLinkOnCharacters, U.LastLogin,
+    C.CharacterID, 
+    C.UserID, 
+    C.CharacterDisplayName, 
+    C.CharacterFirstName, 
+    C.CharacterMiddleName, 
+    C.CharacterLastName, 
+    C.IsActive, 
+    C.IsApproved, 
+    C.ProfileCSS, 
+    C.LastUpdated, 
+    C.DateSubmitted, 
+    C.SubmittedBy,
+    C.IsPrivate, 
+    C.ProfileHTML, 
+    C.LFRPStatus, 
+    C.DisableLinkify, 
+    C.CharacterBio, 
+    C.CharacterGender, 
+    C.MatureContent, 
+    C.EroticaPreferences,
+    C.CharacterSourceID, 
+    C.CharacterStatusID, 
+    C.TypeID, 
+    C.CustomProfileEnabled, 
+    C.UniverseID,  -- ADDED THE MISSING COLUMN
+    U.Username, 
+    U.EmailAddress, 
+    U.LastAction, 
+    U.ShowWhenOnline, 
+    U.IsAdmin, 
+    U.ShowWriterLinkOnCharacters, 
+    U.LastLogin,
     G.Gender,
     LL.LiteracyLevel,
     PLMax.PostLength AS PostLengthMax,
     PLMin.PostLength AS PostLengthMin,
     SO.SexualOrientation,
-    EP.EroticaPreference, CS.StatusName AS CharacterStatus, LFRP.LFRPStatus AS LFRPStatusName, SRC.Source AS CharacterSource, CI.CharacterImageURL AS DisplayImageURL,
+    EP.EroticaPreference, 
+    CS.StatusName AS CharacterStatus, 
+    LFRP.LFRPStatus AS LFRPStatusName, 
+    SRC.Source AS CharacterSource, 
+    CI.CharacterImageURL AS DisplayImageURL,
     C.LiteracyLevel as LiteracyLevelID,
     C.PostLengthMax AS PostLengthMaxID,
     C.PostLengthMin AS PostLengthMinID,
@@ -1216,10 +1249,111 @@ GO
 
 CREATE VIEW [dbo].[ThreadsWithDetails] AS
 SELECT
-    T.ThreadID, T.ThreadTitle, T.LastMessage, T.CreatedBy AS CreatorUserID, TU.UserID, TU.ReadStatusID, TU.CharacterID, U.Username AS CreatorUsername
-FROM dbo.Threads AS T
-INNER JOIN dbo.Thread_Users AS TU ON T.ThreadID = TU.ThreadID
-LEFT JOIN dbo.Users AS U ON T.CreatedBy = U.UserID;
+    T.ThreadID,
+    T.ThreadTitle,
+    T.LastMessage,
+    T.LastMessage AS LastUpdateDate, -- ADDED ALIAS for the C# code
+    T.CreatedBy AS CreatorUserID,
+    TU.UserID,
+    TU.ReadStatusID,
+    TU.CharacterID,
+    U.Username AS CreatorUsername
+FROM
+    dbo.Threads AS T
+INNER JOIN
+    dbo.Thread_Users AS TU ON T.ThreadID = TU.ThreadID
+LEFT JOIN
+    dbo.Users AS U ON T.CreatedBy = U.UserID;
+GO
+
+CREATE VIEW [dbo].[RecentUserThreads] AS
+SELECT
+    T.ThreadID,
+    T.ThreadTitle,
+    T.LastMessage,
+    T.LastMessage AS LastUpdateDate,
+    TU.UserID,
+    TU.ReadStatusID,
+    TU.ReadStatusID AS ReadStatus,
+    TU.CharacterID,
+    -- CORRECTED: Get TypeID from the character who posted the first message
+    (SELECT C.TypeID FROM dbo.Characters AS C WHERE C.CharacterID =
+        (SELECT TOP 1 TM.CreatorID FROM dbo.Thread_Messages AS TM WHERE TM.ThreadID = T.ThreadID ORDER BY TM.TimeStamp ASC)
+    ) AS TypeID,
+    (SELECT U.Username FROM dbo.Users AS U WHERE U.UserID = T.CreatedBy) AS CreatorUsername,
+    (SELECT TOP 1 MessageContent FROM dbo.Thread_Messages WHERE ThreadID = T.ThreadID ORDER BY TimeStamp DESC) AS LastMessageContent,
+    (SELECT TOP 1 CreatorID FROM dbo.Thread_Messages WHERE ThreadID = T.ThreadID ORDER BY TimeStamp DESC) AS LastMessageCharacterID,
+    (SELECT CharacterDisplayName FROM dbo.Characters WHERE CharacterID = (SELECT TOP 1 CreatorID FROM dbo.Thread_Messages WHERE ThreadID = T.ThreadID ORDER BY TimeStamp DESC)) AS LastMessageCharacterName
+FROM
+    dbo.Threads AS T
+INNER JOIN
+    dbo.Thread_Users AS TU ON T.ThreadID = TU.ThreadID;
+GO
+
+CREATE VIEW [dbo].[CurrentUserThreadsWithDetails] AS
+SELECT
+    T.ThreadID,
+    T.ThreadTitle,
+    T.LastMessage,
+    T.LastMessage AS LastUpdateDate,
+    TU.UserID,
+    TU.ReadStatusID,
+    TU.ReadStatusID AS ReadStatus,
+    TU.CharacterID,
+    -- CORRECTED: Get TypeID from the character who posted the first message
+    (SELECT C.TypeID FROM dbo.Characters AS C WHERE C.CharacterID =
+        (SELECT TOP 1 TM.CreatorID FROM dbo.Thread_Messages AS TM WHERE TM.ThreadID = T.ThreadID ORDER BY TimeStamp ASC)
+    ) AS TypeID,
+    (SELECT C.UserID FROM dbo.Characters AS C WHERE C.CharacterID =
+        (SELECT TOP 1 CreatorID FROM dbo.Thread_Messages WHERE ThreadID = T.ThreadID ORDER BY TimeStamp DESC)
+    ) AS LastPostByUserID,
+    (SELECT U.Username FROM dbo.Users AS U WHERE U.UserID = T.CreatedBy) AS CreatorUsername,
+    (SELECT TOP 1 MessageContent FROM dbo.Thread_Messages WHERE ThreadID = T.ThreadID ORDER BY TimeStamp DESC) AS LastMessageContent,
+    (SELECT TOP 1 CreatorID FROM dbo.Thread_Messages WHERE ThreadID = T.ThreadID ORDER BY TimeStamp DESC) AS LastMessageCharacterID,
+    (SELECT CharacterDisplayName FROM dbo.Characters WHERE CharacterID = (SELECT TOP 1 CreatorID FROM dbo.Thread_Messages WHERE ThreadID = T.ThreadID ORDER BY TimeStamp DESC)) AS LastMessageCharacterName
+FROM
+    dbo.Threads AS T
+INNER JOIN
+    dbo.Thread_Users AS TU ON T.ThreadID = TU.ThreadID;
+GO
+
+CREATE VIEW [dbo].[ThreadCharacters] AS
+SELECT
+    TU.ThreadID,
+    TU.CharacterID,
+    C.CharacterDisplayName,
+    C.UserID,
+    C.UniverseID, -- The missing column
+    IMG.CharacterImageURL
+FROM
+    dbo.Thread_Users AS TU
+INNER JOIN
+    dbo.Characters AS C ON TU.CharacterID = C.CharacterID
+LEFT JOIN
+    dbo.Character_Images AS IMG ON C.CharacterID = IMG.CharacterID AND IMG.IsPrimary = 1
+GO
+
+CREATE VIEW [dbo].[ThreadMessagesWithCharacterInfo] AS
+SELECT
+    TM.ThreadMessageID,
+    TM.ThreadID,
+    TM.CreatorID,
+    TM.CreatorID AS CharacterID,
+    TM.MessageContent,
+    TM.TimeStamp,
+    TM.TimeStamp AS MessageDate,
+    C.CharacterDisplayName,
+    C.UserID AS CharacterOwnerUserID,
+    C.UserID,
+    C.DisplayImageURL,
+    C.CharacterNameClass,
+    -- ADDED aSShowWhenOnline AND LastAction COLUMNS
+    C.ShowWhenOnline,
+    C.LastAction
+FROM
+    dbo.Thread_Messages AS TM
+INNER JOIN
+    dbo.CharactersWithDetails AS C ON TM.CreatorID = C.CharacterID
 GO
 
 CREATE VIEW [dbo].[ToDoItemsWithDetails] AS
@@ -1275,17 +1409,57 @@ LEFT JOIN dbo.Universe_Ratings AS UR ON UV.ContentRatingID = UR.RatingID
 LEFT JOIN dbo.Sources AS S ON UV.SourceTypeID = S.SourceID;
 GO
 
-CREATE VIEW [dbo].[UniversesWithDetails] AS
+CREATE VIEW [dbo].[UniversesWithDetails]
+AS
 SELECT
-    UV.UniverseID, UV.UniverseName, UV.UniverseDescription, UV.UniverseOwnerID, UV.CreatedDate, UV.ContentRatingID, UV.SourceTypeID, UV.StatusID, UV.RequiresApprovalOnJoin, UV.DisableLinkify,
+    UV.UniverseID,
+    UV.UniverseName,
+    UV.UniverseDescription,
+    UV.UniverseOwnerID,
+    UV.CreatedDate,
+    UV.ContentRatingID,
+    UV.SourceTypeID,
+    UV.StatusID,
+    UV.RequiresApprovalOnJoin,
+    UV.DisableLinkify,
+    UV.SubmittedByID, -- ADDED this column
     UR.RatingName AS UniverseRating,
     S.Source AS UniverseSource,
-    U.Username AS OwnerUsername,
-    U.Username AS UniverseOwnerName
-FROM dbo.Universes AS UV
-INNER JOIN dbo.Users AS U ON UV.UniverseOwnerID = U.UserID
-LEFT JOIN dbo.Universe_Ratings AS UR ON UV.ContentRatingID = UR.RatingID
-LEFT JOIN dbo.Sources AS S ON UV.SourceTypeID = S.SourceID;
+    OwnerUser.Username AS UniverseOwnerName,
+    Submitter.Username AS SubmittedByName -- ADDED this column from the new JOIN
+FROM
+    dbo.Universes AS UV
+-- Join to get the owner's name
+INNER JOIN
+    dbo.Users AS OwnerUser ON UV.UniverseOwnerID = OwnerUser.UserID
+-- Join to get the submitter's name (use LEFT JOIN because SubmittedByID can be NULL)
+LEFT JOIN
+    dbo.Users AS Submitter ON UV.SubmittedByID = Submitter.UserID
+LEFT JOIN
+    dbo.Universe_Ratings AS UR ON UV.ContentRatingID = UR.RatingID
+LEFT JOIN
+    dbo.Sources AS S ON UV.SourceTypeID = S.SourceID;
+GO
+
+CREATE VIEW [dbo].[UniversesForUser] AS
+SELECT
+    U.UniverseID,
+    U.UniverseName,
+    U.UniverseDescription,
+    U.UniverseOwnerID,
+    U.CreatedDate,
+    U.ContentRatingID,
+    U.SourceTypeID,
+    U.StatusID,
+    U.RequiresApprovalOnJoin,
+    U.DisableLinkify,
+    USR.Username AS OwnerUsername,
+    (SELECT COUNT(CharacterID) FROM dbo.Character_Universes WHERE UniverseID = U.UniverseID) AS CharacterCount,
+    (SELECT COUNT(AdminID) FROM dbo.Universe_Admins WHERE UniverseID = U.UniverseID) AS AdminCount
+FROM
+    dbo.Universes AS U
+INNER JOIN
+    dbo.Users AS USR ON U.UniverseOwnerID = USR.UserID
 GO
 
 CREATE VIEW [dbo].[UserNotesWithDetails] AS

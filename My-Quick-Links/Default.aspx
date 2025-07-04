@@ -32,6 +32,14 @@
                     <asp:TextBox ID="txtOrderNumber" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
                 </div>
             </div>
+            
+            <%-- ADDED ERROR LABEL --%>
+            <div class="row">
+                <div class="col-sm-12">
+                     <asp:Label ID="lblError" runat="server" CssClass="text-danger" Visible="false"></asp:Label>
+                </div>
+            </div>
+
             <div class="ButtonPanel clearfix">
                 <div class="col-sm-4 col-xl-2">
                     <asp:Button ID="btnAddQuickLink" runat="server" Text="Add Quick Link" CssClass="btn btn-success btn-block" OnClick="btnAddQuickLink_Click" />
@@ -64,7 +72,6 @@
             </asp:SqlDataSource>
         </div>
     </div>
-    <!-- Modules -->
     <div class="modal fade" id="InfoModal" tabindex="-1" role="dialog" aria-labelledby="InfoLabel" runat="server" clientidmode="Static">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
